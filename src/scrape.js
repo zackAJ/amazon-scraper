@@ -34,7 +34,7 @@ const SELECTORS = {
 
 const HEADERS =
 	process.env.APP_ENV == "prod" ? PRODUCTION_HEADERS : LOCAL_HEADERS;
-
+  console.log(process.env.APP_ENV);
 async function fetchAmazonPage(keyword) {
 	try {
 		let res = await axios.get(URL + keyword, HEADERS);
