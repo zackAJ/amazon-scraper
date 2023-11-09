@@ -3,17 +3,8 @@ const cheerio = require("cheerio");
 const URL = "https://www.amazon.com/s?k=";
 const options = {
 	headers: {
-		Host: "www.amazon.com",
-		"User-Agent":
-			"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101 Firefox/70.0",
-		Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-		"Accept-Language": "en-US,en;q=0.5",
-		"Accept-Encoding": "gzip, deflate, br",
-		Connection: "keep-alive",
-		"Upgrade-Insecure-Requests": "1",
-		TE: "Trailers",
+		"User-Agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36",
 	},
-};
 const SELECTORS = {//after inspecting the page
 	products: "[data-component-type=s-search-result]",
 	title: "a.a-link-normal.s-underline-text.s-underline-link-text.s-link-style.a-text-normal span.a-color-base.a-text-normal",//this was the hardest to get, the classes are dynamic
