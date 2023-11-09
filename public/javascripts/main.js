@@ -1,4 +1,4 @@
-const APi_URL = "http://localhost:3000/api/scrape?keyword=";
+const APi_URL = "/api/scrape?keyword=";
 const input = document.getElementById("keyword");
 const resultsDiv = document.getElementById("results");
 const searchBtn = document.getElementById("searchBtn");
