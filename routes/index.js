@@ -11,7 +11,7 @@ router.get("/", function (req, res, next) {
 router.get("/api/scrape", async function (req, res, next) {
   const keyword = validator.escape(''+req.query.keyword).trim(); //cleaning input
   if (!keyword)//handling empty strings
-		return res
+			 res
 			.status(400)
 			.json(
 				"keyword query string required, example query: /api/scrape?keyword=hat"
