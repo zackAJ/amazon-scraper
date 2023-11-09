@@ -2,9 +2,10 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const URL = "https://www.amazon.com/s?k=";
 const options = {
-	headers: {
-		"User-Agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36",
-	},
+  headers: {
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36",
+  }
+};
 const SELECTORS = {//after inspecting the page
 	products: "[data-component-type=s-search-result]",
 	title: "a.a-link-normal.s-underline-text.s-underline-link-text.s-link-style.a-text-normal span.a-color-base.a-text-normal",//this was the hardest to get, the classes are dynamic
