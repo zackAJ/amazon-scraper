@@ -11,7 +11,7 @@ router.get("/", function (req, res, next) {
 router.get("/api/scrape", async function (req, res, next) {
   const keyword = validator.escape(''+req.query.keyword).trim(); //cleaning input
   if (!keyword)//handling empty strings
-			 res
+			return res
 			.status(400)
 			.json(
 				"keyword query string required, example query: /api/scrape?keyword=hat"
@@ -19,7 +19,7 @@ router.get("/api/scrape", async function (req, res, next) {
 
   scrapeAmazon(keyword).then((products) => {
     if (!products) //ajax to amazon went wrong= falsy
-      res
+     	return res
         .status(400)
         .json(
           "something went wrong when scraping Amazon, contact the developer."
