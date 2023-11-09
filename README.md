@@ -6,7 +6,7 @@
 
 1- Clone repo:
 ```
-git clone https://github.com/zackAJ/amazon-scrape
+git clone https://github.com/zackAJ/amazon-scraper
 ```
 
 2- Install dependancies:
