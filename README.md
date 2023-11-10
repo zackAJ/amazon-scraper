@@ -9,7 +9,7 @@
 git clone https://github.com/zackAJ/amazon-scraper
 ```
 
-2- Install dependancies:
+2- Install dependencies:
 ```
 npm install
 ```
