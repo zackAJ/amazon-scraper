@@ -2,6 +2,8 @@
 
 ### Live Demo: https://amazon-scrape.vercel.app/
 
+### Backup link: https://scraper-amazon.vercel.app/
+
 ## Instalation
 
 1- Clone repo:
