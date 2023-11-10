@@ -21,7 +21,7 @@ async function search(event) {
 
 		if (!data.products.length) alertUser("no products found !");//test this by searching jibrish
 
-		renderProducts(data.products);
+		renderProducts(data);
 
 	} catch (err) {
 		console.log(err);
@@ -32,8 +32,11 @@ async function search(event) {
 }
 
 //display products on the screen
-function renderProducts(products) {
-	products.forEach((product) => {
+function renderProducts(data) {
+
+  resultsDiv.innerHTML = `<h2 class="absolute -top-8 ">Total Products on the first page:
+  <span class="font-bold text-[var(--amazon-gold)]" >${data.products_count}</span></h2>`;
+	data.products.forEach((product) => {
 		const productCard = document.createElement("div");
 		productCard.setAttribute(
 			"class",
