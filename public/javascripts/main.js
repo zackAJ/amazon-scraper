@@ -37,11 +37,13 @@ function renderProducts(data) {
   resultsDiv.innerHTML = `<h2 class="absolute -top-8 ">Total Products on the first page:
   <span class="font-bold text-[var(--amazon-gold)]" >${data.products_count}</span></h2>`;
 	data.products.forEach((product) => {
-		const productCard = document.createElement("div");
+		const productCard = document.createElement("a");
 		productCard.setAttribute(
 			"class",
 			"bg-white w-[20rem]  rounded overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 transform-gpu transition-transform cursor-pointer p-3 flex flex-col justify-between h-[420px]"
-		);
+    );
+    productCard.setAttribute('href', product.link);
+    productCard.setAttribute('target', '_blank');
 
 		const image = document.createElement("img");
 		image.setAttribute("class", "h-[200px] mx-auto");

@@ -1,6 +1,7 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-const URL = "https://www.amazon.com/s?k=";
+const TARGET_URL = "https://www.amazon.com/";
+const QUERY_URL = "https://www.amazon.com/s?k=";
 const PRODUCTION_HEADERS = {
 	headers: {
 		Host: "www.amazon.com",
@@ -29,14 +30,15 @@ const SELECTORS = {
 		"a.a-link-normal.s-underline-text.s-underline-link-text.s-link-style.a-text-normal span.a-color-base.a-text-normal", //this was the hardest to get, the classes are dynamic
 	rating: "span.a-icon-alt",
 	reviews: "span.a-size-base.s-underline-text",
-	image: "img.s-image",
+  image: "img.s-image",
+  link: "a:first"
 };
 
 const HEADERS =
 	process.env.APP_ENV == "prod" ? PRODUCTION_HEADERS : LOCAL_HEADERS;
 async function fetchAmazonPage(keyword) {
 	try {
-		let res = await axios.get(URL + keyword, HEADERS);
+		let res = await axios.get(QUERY_URL + keyword, HEADERS);
 		return res; //return false to test amazon error response
 	} catch (err) {
 		console.log(err);
@@ -49,13 +51,15 @@ function constructProducts($, productDivs) {
 	const products = [];
 	productDivs.each((index, productDiv) => {
 		products[index] = {
-			title: $(productDiv).find($(SELECTORS.title)).text(),
+			title: $(productDiv).find(SELECTORS.title).text(),
 
-			rating: $(productDiv).find($(SELECTORS.rating)).text(),
+			rating: $(productDiv).find(SELECTORS.rating).text(),
 
-			reviews: $(productDiv).find($(SELECTORS.reviews)).text(),
+			reviews: $(productDiv).find(SELECTORS.reviews).text(),
 
-			image: $(productDiv).find($(SELECTORS.image)).attr("src"),
+      image: $(productDiv).find(SELECTORS.image).attr("src"),
+      
+			link: TARGET_URL+ $(productDiv).find(SELECTORS.link).attr("href"),
 		};
 	});
 	return products;
