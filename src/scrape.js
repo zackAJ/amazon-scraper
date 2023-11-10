@@ -12,7 +12,7 @@ const PRODUCTION_HEADERS = {
 		"Accept-Encoding": "gzip, deflate, br",
 		Connection: "keep-alive",
 		"Upgrade-Insecure-Requests": "1",
-		TE: "Trailers",
+		// TE: "Trailers",
 	},
 };
 
@@ -35,7 +35,7 @@ const SELECTORS = {
 };
 
 const HEADERS =
-	process.env.APP_ENV == "prod" ? PRODUCTION_HEADERS : LOCAL_HEADERS;
+  process.env.APP_ENV == "prod" ? PRODUCTION_HEADERS : LOCAL_HEADERS;
 async function fetchAmazonPage(keyword) {
 	try {
 		let res = await axios.get(QUERY_URL + keyword, HEADERS);
