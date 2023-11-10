@@ -1,4 +1,7 @@
 # Scrape Amazon Products
+This project is built for educational purposes only. The website is not intended for commercial use, it's live only for demonstration purposes.
+
+Please don't abuse it and avoid getting rate-limited / blocked.
 
 ### Live Demo: https://amazon-scrape.vercel.app/
 
